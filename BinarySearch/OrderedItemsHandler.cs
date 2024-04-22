@@ -264,6 +264,24 @@ namespace BinarySearch
 
             return db;
         }
+        public int CountInASpecificRange(IComparable startRange, IComparable endRange)
+        {
+            return HigherBound(endRange) - LowerBound(startRange);
+        }
 
+        public IComparable[] FindAllItemInSpecificRange(IComparable startRange, IComparable endRange)
+        {
+            int lowValue = LowerBound(startRange);
+            int highValue = HigherBound(endRange);
+
+            IComparable[] result = new IComparable[highValue - lowValue];
+            int j = 0;
+            for (int i = lowValue; i < highValue; i++, j++)
+            {
+                result[j] = items[i];
+            }
+
+            return result;
+        }
     }
 }

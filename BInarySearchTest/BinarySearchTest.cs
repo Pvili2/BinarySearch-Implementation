@@ -145,5 +145,23 @@ namespace BInarySearchTest
 
             Assert.That(new OrderedItemsHandler(ascendingArray).HigherBound(item), Is.EqualTo(expected));
         }
+
+        [Test]
+        public void CountSpecificRangeTest()
+        {
+            PhoneBookItem item = new PhoneBookItem { Name = "Kis Anna", PhoneNumber = "123456" };
+            PhoneBookItem item2 = new PhoneBookItem { Name = "Szép Éva", PhoneNumber = "456789" };
+
+            Assert.That(new OrderedItemsHandler(ascendingArray).CountInASpecificRange(item, item2), Is.EqualTo(5));
+        }
+
+        [Test]
+        public void FindSpecificRangeTest()
+        {
+            PhoneBookItem item = new PhoneBookItem { Name = "Kis Anna", PhoneNumber = "123456" };
+            PhoneBookItem item2 = new PhoneBookItem { Name = "Szép Éva", PhoneNumber = "456789" };
+
+            Assert.That(new OrderedItemsHandler(ascendingArray).FindAllItemInSpecificRange(item, item2).Length, Is.EqualTo(5));
+        }
     }
 }
